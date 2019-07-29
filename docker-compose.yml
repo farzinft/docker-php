@@ -2,15 +2,15 @@ version: '2'
 services:
   app:
     build:
-      context: ./docker
+      context: "${DOCKERFILE_PATH}"
       dockerfile: Dockerfile
     image: fthi/php-app
     environment:
-      WWWUSERID: 1000
+      WWWUSERID: "${WWWUSERID}"
     volumes:
       - .:/var/www/html
     ports:
-      - "8181:8080"
+      - "${APP_PORT}:8080"
     networks:
       - ftnet
   redis:
@@ -24,10 +24,10 @@ services:
     volumes:
       - mysqldata:/var/lib/mysql
     environment:
-        MYSQL_DATABASE: coinnik
-        MYSQL_ROOT_PASSWORD: 123123
-        MYSQL_USER: farzin
-        MYSQL_PASSWORD: 123123
+        MYSQL_DATABASE: "${DB_NAME}"
+        MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
+        MYSQL_USER: "${DB_USER}"
+        MYSQL_PASSWORD: "${DB_PASSWORD}"
     networks:
       - ftnet
   phpmyadmin:
@@ -35,10 +35,10 @@ services:
     restart: always
     environment:
       PMA_HOST: db
-      MYSQL_USER: farzin
-      MYSQL_PASSWORD: 123123
+      MYSQL_USER: "${DB_USER}"
+      MYSQL_PASSWORD: "${DB_PASSWORD}"
     ports:
-      - 8282:80
+      - "${PHPMYADMIN_PORT}:80"
     networks:
       - ftnet
     volumes:
