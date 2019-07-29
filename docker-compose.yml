@@ -8,7 +8,7 @@ services:
     environment:
       WWWUSERID: "${WWWUSERID}"
     volumes:
-      - .:/var/www/html
+      - "${APP_PATH}:/var/www/html"
     ports:
       - "${APP_PORT}:8080"
     networks:
