@@ -29,7 +29,7 @@ RUN apk --update add \
         php7-xml \
         php7-zip \
         php7-tokenizer \
-        php7-bcmatch \
+        php7-bcmath \
         nginx \
         supervisor \
         shadow \
