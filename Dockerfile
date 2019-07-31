@@ -29,6 +29,7 @@ RUN apk --update add \
         php7-xml \
         php7-zip \
         php7-tokenizer \
+        php7-match \
         nginx \
         supervisor \
         shadow \
