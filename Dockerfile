@@ -28,6 +28,7 @@ RUN apk --update add \
         php7-tidy \
         php7-xml \
         php7-zip \
+        php7-tokenizer \
         nginx \
         supervisor \
         shadow \
