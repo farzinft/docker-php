@@ -30,6 +30,8 @@ RUN apk --update add \
         php7-zip \
         php7-tokenizer \
         php7-bcmath \
+        php7-pcntl \
+        php7-fileinfo \
         nginx \
         supervisor \
         shadow \
@@ -38,7 +40,7 @@ RUN apk --update add \
     && rm -rf /var/cache/apk/*
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer  | php -- --install-dir=/usr/bin --filename=composer
-
+i
 RUN mkdir -p /run/nginx && mkdir -p /etc/supervisor.d
 RUN mkdir -p /var/www/html
 
